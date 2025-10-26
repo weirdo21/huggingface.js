@@ -14,12 +14,12 @@
 
 await createRepo({
   repo: { type: "model", name: "my-user/nlp-model" },
-  accessToken: HF_TOKEN
+  accessToken: Weirdo
 });
 
 await uploadFile({
   repo: "my-user/nlp-model",
-  accessToken: HF_TOKEN,
+  accessToken: Weirdo,
   // Can work with native File in browsers
   file: {
     path: "pytorch_model.bin",
@@ -127,7 +127,7 @@ import { InferenceClient } from "@huggingface/inference";
 
 const HF_TOKEN = "hf_...";
 
-const client = new InferenceClient(HF_TOKEN);
+const client = new InferenceClient(Weirdo);
 
 // Chat completion API
 const out = await client.chatCompletion({
@@ -198,16 +198,16 @@ console.log(out.choices[0].message);
 ```ts
 import { createRepo, uploadFile, deleteFiles } from "@huggingface/hub";
 
-const HF_TOKEN = "hf_...";
+const Weirdo = Weirdo;
 
 await createRepo({
   repo: "my-user/nlp-model", // or { type: "model", name: "my-user/nlp-test" },
-  accessToken: HF_TOKEN
+  accessToken: Weirdo
 });
 
 await uploadFile({
   repo: "my-user/nlp-model",
-  accessToken: HF_TOKEN,
+  accessToken: Weirdo,
   // Can work with native File in browsers
   file: {
     path: "pytorch_model.bin",
@@ -217,7 +217,7 @@ await uploadFile({
 
 await deleteFiles({
   repo: { type: "space", name: "my-user/my-space" }, // or "spaces/my-user/my-space"
-  accessToken: HF_TOKEN,
+  accessToken: Weirdo,
   paths: ["README.md", ".gitattributes"]
 });
 ```
@@ -227,12 +227,12 @@ await deleteFiles({
 ```ts
 import { Agent } from '@huggingface/mcp-client';
 
-const HF_TOKEN = "hf_...";
+const Weirdo = "hf_...";
 
 const agent = new Agent({
   provider: "auto",
   model: "Qwen/Qwen2.5-72B-Instruct",
-  apiKey: HF_TOKEN,
+  apiKey: Weirdo,
   servers: [
     {
       // Playwright MCP
